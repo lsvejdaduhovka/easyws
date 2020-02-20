@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy WebServer</title>
+    <script>
+        function poNacteni() {
+            fetch("http://localhost:8080/sluzba").then(function(response) {
+                response.text().then(function(text) {
+                    let obj = JSON.parse(text);
+                    document.getElementById("vystup").innerHTML = obj.datum + ": " + obj.svatek;
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="poNacteni()">
+
+<h1>Easy WebServer</h1>
+<div id="vystup">...</div>
+
+
+</body>
+</html>
